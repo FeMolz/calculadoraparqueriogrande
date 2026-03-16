@@ -75,6 +75,7 @@
         <option value="avista">À vista (25% de desconto)</option>
         <option value="100x">Parcelado em 100x</option>
         <option value="36x">Parcelado em 36x</option>
+        <option  value="PromocionalEspecial"> Promoção 10k de entrada </option>
       </select>
 
       <div style="margin-top: 10px;">
@@ -1486,8 +1487,13 @@
         parcelas = 36;
         parcelaValor = saldo / parcelas;
         texto = `Total com 10% de desconto: <strong>R$ ${valorComDesconto.toLocaleString('pt-BR', { minimumFractionDigits: 2 })}</strong><br>Entrada de <strong>R$ ${entrada.toLocaleString('pt-BR', { minimumFractionDigits: 2 })}</strong><br>+ ${parcelas}x de <strong>R$ ${parcelaValor.toLocaleString('pt-BR', { minimumFractionDigits: 2 })}</strong>`;
+      } else if (forma === "PromocionalEspecial"){
+        entrada = 10000;
+        let saldo = valorBase - entrada;
+        parcelas = 100;
+        parcelaValor = saldo/parcelas;
+        texto = `Total : <strong>R$ ${valorBase.toLocaleString('pt-BR', { minimumFractionDigits: 2 })}</strong><br>Entrada de <strong>R$ ${entrada.toLocaleString('pt-BR', { minimumFractionDigits: 2 })}</strong><br>+ ${parcelas}x de <strong>R$ ${parcelaValor.toLocaleString('pt-BR', { minimumFractionDigits: 2 })}</strong>`;
       }
-
       resumo.innerHTML = texto;
     }
 
